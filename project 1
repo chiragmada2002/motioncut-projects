@@ -1,0 +1,85 @@
+//product pricing
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fictitious Product Pricing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .pricing-option {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            width: 200px;
+        }
+
+        .active-option {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fictitious Product Pricing</h1>
+
+    <div id="pricing" class="pricing-container">
+        <div class="pricing-option" id="basicOption">
+            <h2>Basic</h2>
+            <p><span class="price">$</span><span id="basicPrice">19.99</span>/month</p>
+        </div>
+
+        <div class="pricing-option active-option" id="standardOption">
+            <h2>Standard</h2>
+            <p><span class="price">$</span><span id="standardPrice">29.99</span>/month</p>
+        </div>
+
+        <div class="pricing-option" id="premiumOption">
+            <h2>Premium</h2>
+            <p><span class="price">$</span><span id="premiumPrice">39.99</span>/month</p>
+        </div>
+    </div>
+
+    <script>
+        // Interactive pricing toggles
+        const pricingOptions = document.querySelectorAll('.pricing-option');
+
+        pricingOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                pricingOptions.forEach(o => o.classList.remove('active-option'));
+                option.classList.add('active-option');
+            });
+        });
+
+        // Currency and unit customization
+        const currencySymbol = document.querySelector('.price');
+        const basicPrice = document.getElementById('basicPrice');
+        const standardPrice = document.getElementById('standardPrice');
+        const premiumPrice = document.getElementById('premiumPrice');
+
+        // Customize currency and units based on user preferences
+        // You can replace this logic with user preferences or a settings panel
+        const userCurrency = "$"; // Example currency customization
+        const userUnit = "GB"; // Example unit customization
+
+        currencySymbol.innerText = userCurrency;
+        basicPrice.innerText = "19.99";
+        standardPrice.innerText = "29.99";
+        premiumPrice.innerText = "39.99";
+
+    </script>
+</body>
+</html>
